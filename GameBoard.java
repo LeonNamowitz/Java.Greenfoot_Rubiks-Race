@@ -19,6 +19,12 @@ public class GameBoard extends World
     GameTile gameTile7 = new GameTile();
     GameTile gameTile8 = new GameTile();
     GameTile gameTile9 = new GameTile();
+    GameTile gameTile10 = new GameTile();
+    GameTile gameTile11 = new GameTile();
+    GameTile gameTile12 = new GameTile();
+    GameTile gameTile13 = new GameTile();
+    GameTile gameTile14 = new GameTile();
+
 
     /**
      * Constructor for objects of class MyWorld.
@@ -66,6 +72,10 @@ public class GameBoard extends World
         addObject(gameTile7, initX + GameTile.tileLength*2 + offset*2, initY + GameTile.tileLength + offset);
         addObject(gameTile8, initX + GameTile.tileLength*3 + offset*3, initY + GameTile.tileLength + offset);
         addObject(gameTile9, initX + GameTile.tileLength*4 + offset*4, initY + GameTile.tileLength + offset);
+
+        addObject(gameTile10, initX, initY + GameTile.tileLength*2 + offset*2);
+        addObject(gameTile11, initX + GameTile.tileLength + offset, initY + GameTile.tileLength*2 + offset*2);
+
  
     }
 

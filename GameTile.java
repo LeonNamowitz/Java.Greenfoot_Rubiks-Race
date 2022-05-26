@@ -9,9 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameTile extends Actor
 {
     public static int tileLength = 50;
-    boolean isMoving = false;
+    boolean hasBeenClicked = false;
     int oldX;
     int oldY;
+    String direction;
 
 
     public GameTile()
@@ -45,28 +46,64 @@ public class GameTile extends Actor
     {
         if (Greenfoot.mouseClicked(this) ) { 
             // currentTile = Greenfoot.getMouseInfo().getActor();
-            int oldX = this.getX();
-            int oldY = this.getY();
-            this.tileMove(true, oldX, oldY);
+            oldX = this.getX();
+            oldY = this.getY();
+            hasBeenClicked = true;
+            direction = checkDirection();
+            System.out.println(direction);
         } 
     }
 
     public void checkMove()
     {
         // Careful: if move amount is not a divisor of the offset, it won't stop !!!
-        if (isMoving == true) {
+        if (hasBeenClicked == true && direction == "right") {
+            this.setRotation(0);
             this.move(5);
+            if (this.getX() == oldX + 60)    {
+                hasBeenClicked = false;
+            }
         }
-        if (this.getX() == oldX + 60)    {
-            isMoving = false;
+        if (hasBeenClicked == true && direction == "down") {
+            this.setRotation(90);
+            this.move(5);
+            if (this.getY() == oldY + 60)    {
+                hasBeenClicked = false;
+            }
+        }
+        if (hasBeenClicked == true && direction == "left") {
+            this.setRotation(180);
+            this.move(5);
+            if (this.getX() == oldX - 60)    {
+                hasBeenClicked = false;
+            }
+        }
+        if (hasBeenClicked == true && direction == "up") {
+            this.setRotation(270);
+            this.move(5);
+            if (this.getY() == oldX - 60)    {
+                hasBeenClicked = false;
+            }
         }
     }
 
-    public void tileMove(boolean moving, int posX, int posY)
+    public String checkDirection()
     {
-        isMoving = moving;
-        oldX = posX;
-        oldY = posY;
+        if (getOneObjectAtOffset(60, 0, GameTile.class) == null)    {
+            return "right";
+        }
+        if (getOneObjectAtOffset(-60, 0, GameTile.class) == null)    {
+            return "left";
+        }
+        if (getOneObjectAtOffset(0, 60, GameTile.class) == null)    {
+            return "down";
+        }
+        if (getOneObjectAtOffset(0, -60, GameTile.class) == null)    {
+            return "up";
+        }
+        else    {
+            return "null";
+        }
     }
 
 }
