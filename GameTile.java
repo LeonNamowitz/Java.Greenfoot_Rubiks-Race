@@ -21,13 +21,12 @@ public class GameTile extends Actor
 
         GreenfootImage tile = new GreenfootImage(tileLength, tileLength);
         // create a random color, with every color channel between 30 and 230
-        int red = Greenfoot.getRandomNumber(200) + 30;
-        int green = Greenfoot.getRandomNumber(200) + 30;
-        int blue = Greenfoot.getRandomNumber(200) + 30;
-        // int alpha = Greenfoot.getRandomNumber(190) + 60;
-        int alpha = 255;
-        
-        tile.setColor(new Color(red, green, blue, alpha));
+        // int red = Greenfoot.getRandomNumber(200) + 30;
+        // int green = Greenfoot.getRandomNumber(200) + 30;
+        // int blue = Greenfoot.getRandomNumber(200) + 30;
+        // int alpha = 255;
+        Color color = selectColor();
+        tile.setColor(color);
         tile.fillRect(0, 0, tileLength, tileLength);
         setImage(tile);
     }
@@ -50,7 +49,7 @@ public class GameTile extends Actor
             oldY = this.getY();
             hasBeenClicked = true;
             direction = checkDirection();
-            System.out.println(direction);
+            // System.out.println(direction);
         } 
     }
 
@@ -103,6 +102,30 @@ public class GameTile extends Actor
         }
         else    {
             return "null";
+        }
+    }
+
+    public Color selectColor()
+    {
+        int choice = Greenfoot.getRandomNumber(4);
+        if (choice == 0)    {
+            Color red = new Color(255, 0, 0);
+            return red;
+        }
+        if (choice == 1)    {
+            Color green = new Color(0, 255, 0);
+            return green;
+        }
+        if (choice == 2)    {
+            Color blue = new Color(0, 0, 255);
+            return blue;
+        }
+        if (choice == 3)    {
+            Color yellow = new Color(255, 255, 0);
+            return yellow;
+        }
+        else    {
+            return Color.BLACK;
         }
     }
 
