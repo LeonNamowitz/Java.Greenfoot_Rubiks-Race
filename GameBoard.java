@@ -42,28 +42,11 @@ public class GameBoard extends World
      */
     public void act()
     {
-        checkForClick();
-        // tileMove();
+
     }
     
-    
-    private void checkForClick()
-    {
-        if (Greenfoot.mouseClicked(gameTile2) ) { 
-            // currentTile = Greenfoot.getMouseInfo().getActor();
-            int oldX = gameTile2.getX();
-            int oldY = gameTile2.getY();
-            gameTile2.tileMove(true, oldX, oldY);
-        } 
-    }
 
 
-
-
-    public void move()
-    {
-
-    }
 
     public void testSetup()
     {

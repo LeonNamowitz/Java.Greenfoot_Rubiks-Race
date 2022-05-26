@@ -37,13 +37,25 @@ public class GameTile extends Actor
      */
     public void act()
     {
+        checkForClick();
         checkMove();
+    }
+
+    private void checkForClick()
+    {
+        if (Greenfoot.mouseClicked(this) ) { 
+            // currentTile = Greenfoot.getMouseInfo().getActor();
+            int oldX = this.getX();
+            int oldY = this.getY();
+            this.tileMove(true, oldX, oldY);
+        } 
     }
 
     public void checkMove()
     {
+        // Careful: if move amount is not a divisor of the offset, it won't stop !!!
         if (isMoving == true) {
-            this.move(1);
+            this.move(5);
         }
         if (this.getX() == oldX + 60)    {
             isMoving = false;
