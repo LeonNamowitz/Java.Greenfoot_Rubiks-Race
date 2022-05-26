@@ -39,7 +39,8 @@ public class GameBoard extends World
         background.fillRect(0, 0, getWidth(), getHeight());
         // setBackground(background);
 
-        testSetup();
+        // testSetup();
+        generator();
         
     }
 
@@ -52,7 +53,15 @@ public class GameBoard extends World
     }
     
 
+    public void generator()
+    {
+        for (int i = 160; i < 460; i += 60) {
+            for (int j = 160; j < 460; j += 60) {
+                addObject(new GameTile(), i, j);
 
+            }
+        }
+    }
 
     public void testSetup()
     {
