@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=GameBoard
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ Leon\ Namowitz\ \r\n\ @version\ 0.0.1\r\n
+comment1.params=
+comment1.target=GameBoard()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ Method.\ World\ logic.\r\n
+comment3.params=
+comment3.target=void\ checkForClick()
+comment4.params=
+comment4.target=void\ move()
+comment5.params=
+comment5.target=void\ testSetup()
+numComments=6
