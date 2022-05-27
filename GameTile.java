@@ -42,16 +42,18 @@ public class GameTile extends Actor
     }
 
     /**
-     * Act - do whatever the GameTile wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Waits for a mouse inputs;the clicked object then moves to an empty adjacent tile.
      */
     public void act()
     {
-        checkForClick();
+        waitForClick();
         checkMove();
     }
 
-    private void checkForClick()
+    /**
+     * Waits for a mouse inputs and saves the location of the object at that position.
+     */
+    private void waitForClick()
     {
         if (Greenfoot.mouseClicked(this) ) { 
             // currentTile = Greenfoot.getMouseInfo().getActor();
@@ -63,6 +65,9 @@ public class GameTile extends Actor
         } 
     }
 
+    /**
+     * Moves towards the empty direction and stops at a full tile offset.
+     */
     public void checkMove()
     {
         // Careful: if move amount is not a divisor of the offset, it won't stop !!!
@@ -96,6 +101,10 @@ public class GameTile extends Actor
         }
     }
 
+    /**
+     * Checks at a full tile offset for a GameTile object.
+     * @return Returns the direction of an adjacent empty tile.
+     */
     public String checkDirection()
     {
         if (getOneObjectAtOffset(60, 0, GameTile.class) == null)    {
@@ -115,6 +124,11 @@ public class GameTile extends Actor
         }
     }
 
+    /**
+     * Color Selector
+     * @param Input the choice of the Color that should be returned.
+     * @return Returns a custom color object.
+     */
     public Color selectColor(int choice)
     {
         if (choice == 0)    {

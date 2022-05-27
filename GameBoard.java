@@ -53,7 +53,9 @@ public class GameBoard extends World
     {
     
     }
-    
+    /**
+     * Generates a 5x5 field with random colors and 1 empty tile.
+     */
     public void generator()
     {
         for (int i = 160; i < 460; i += 60) {
@@ -61,24 +63,26 @@ public class GameBoard extends World
                 addObject(new GameTile(), i, j);
             }
         }
-        // List objects;   
-        List objects = getObjectsAt(220, 340, GameTile.class);
+        // Removes 1 object from board  
+        List objects = getObjectsAt(Greenfoot.getRandomNumber(220)+170, Greenfoot.getRandomNumber(220)+170, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
-                
+        int outside = 4;    //Outside tiles are invis (4)
         for (int i = 100; i < 520; i += 60) {
-            addObject(new GameTile(4), i, 100);
+            addObject(new GameTile(outside), i, 100);
         }
         for (int i = 100; i < 520; i += 60) {
-            addObject(new GameTile(4), i, 460);
+            addObject(new GameTile(outside), i, 460);
         }
         for (int i = 160; i < 460; i += 60) {
-            addObject(new GameTile(4), 100, i);
+            addObject(new GameTile(outside), 100, i);
         }
         for (int i = 160; i < 460; i += 60) {
-            addObject(new GameTile(4), 460, i);
+            addObject(new GameTile(outside), 460, i);
         }
     }
+
+
 
     //For testing only
     public void testSetup()
@@ -86,8 +90,6 @@ public class GameBoard extends World
         int initX = 160;
         int initY = 160;
         int offset = 10;
-
-
 
         addObject(gameTile1, initX, initY);
         addObject(gameTile2, initX + GameTile.tileLength + offset, initY);
