@@ -1,3 +1,4 @@
+import java.util.List;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -10,6 +11,7 @@ public class GameBoard extends World
 {
     int steps = 0;
     Actor currentTile;
+    // For testing only
     GameTile gameTile1 = new GameTile();
     GameTile gameTile2 = new GameTile();
     GameTile gameTile3 = new GameTile();
@@ -49,20 +51,36 @@ public class GameBoard extends World
      */
     public void act()
     {
-
+    
     }
     
-
     public void generator()
     {
         for (int i = 160; i < 460; i += 60) {
             for (int j = 160; j < 460; j += 60) {
                 addObject(new GameTile(), i, j);
-
             }
+        }
+        // List objects;   
+        List objects = getObjectsAt(220, 340, GameTile.class);
+        Actor start = (Actor) objects.get(0);
+        removeObject(start);
+                
+        for (int i = 100; i < 520; i += 60) {
+            addObject(new GameTile(4), i, 100);
+        }
+        for (int i = 100; i < 520; i += 60) {
+            addObject(new GameTile(4), i, 460);
+        }
+        for (int i = 160; i < 460; i += 60) {
+            addObject(new GameTile(4), 100, i);
+        }
+        for (int i = 160; i < 460; i += 60) {
+            addObject(new GameTile(4), 460, i);
         }
     }
 
+    //For testing only
     public void testSetup()
     {
         int initX = 160;
@@ -84,7 +102,6 @@ public class GameBoard extends World
 
         addObject(gameTile10, initX, initY + GameTile.tileLength*2 + offset*2);
         addObject(gameTile11, initX + GameTile.tileLength + offset, initY + GameTile.tileLength*2 + offset*2);
-
  
     }
 

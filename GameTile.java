@@ -25,7 +25,17 @@ public class GameTile extends Actor
         // int green = Greenfoot.getRandomNumber(200) + 30;
         // int blue = Greenfoot.getRandomNumber(200) + 30;
         // int alpha = 255;
-        Color color = selectColor();
+        int choice = Greenfoot.getRandomNumber(4);
+        Color color = selectColor(choice);
+        tile.setColor(color);
+        tile.fillRect(0, 0, tileLength, tileLength);
+        setImage(tile);
+    }
+
+    public GameTile(int choice)
+    {
+        GreenfootImage tile = new GreenfootImage(tileLength, tileLength);
+        Color color = selectColor(choice);
         tile.setColor(color);
         tile.fillRect(0, 0, tileLength, tileLength);
         setImage(tile);
@@ -80,7 +90,7 @@ public class GameTile extends Actor
         if (hasBeenClicked == true && direction == "up") {
             this.setRotation(270);
             this.move(5);
-            if (this.getY() == oldX - 60)    {
+            if (this.getY() == oldY - 60)    {
                 hasBeenClicked = false;
             }
         }
@@ -105,9 +115,8 @@ public class GameTile extends Actor
         }
     }
 
-    public Color selectColor()
+    public Color selectColor(int choice)
     {
-        int choice = Greenfoot.getRandomNumber(4);
         if (choice == 0)    {
             Color red = new Color(255, 0, 0);
             return red;
@@ -123,6 +132,10 @@ public class GameTile extends Actor
         if (choice == 3)    {
             Color yellow = new Color(255, 255, 0);
             return yellow;
+        }
+        if (choice == 4)    {
+            Color invis = new Color(0, 0, 0, 0);
+            return invis;
         }
         else    {
             return Color.BLACK;
