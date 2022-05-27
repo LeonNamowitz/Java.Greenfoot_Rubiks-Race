@@ -1,5 +1,9 @@
 import java.util.List;
+
+import bluej.collect.GreenfootInterfaceEvent;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.collision.ColManager;
+import greenfoot.core.GreenfootMain;
 
 /**
  * Write a description of class MyWorld here.
@@ -51,8 +55,22 @@ public class GameBoard extends World
      */
     public void act()
     {
-    
+        checkMiddle();
     }
+
+    /**
+     * Use getColorAt to check for a WIN ?!
+     */
+    public void checkMiddle()
+    {
+        // GreenfootImage test = new GreenfootImage("test");
+        List objects = getObjectsAt(160, 160, GameTile.class);
+        Actor here = (Actor) objects.get(0);
+        Color current = here.getImage().getColor();
+        // System.out.println(current);
+    }
+
+
     /**
      * Generates a 5x5 field with random colors and 1 empty tile.
      */
@@ -64,6 +82,7 @@ public class GameBoard extends World
             }
         }
         // Removes 1 object from board  
+        // Currently buggy if it lands on empty offset in between !!!
         List objects = getObjectsAt(Greenfoot.getRandomNumber(220)+170, Greenfoot.getRandomNumber(220)+170, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
