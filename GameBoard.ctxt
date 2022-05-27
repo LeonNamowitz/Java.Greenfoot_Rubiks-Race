@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GameBoard
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ Leon\ Namowitz\ \r\n\ @version\ 0.0.1\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ Leon\ Namowitz\ \r\n\ @version\ 0.0.2\r\n
 comment1.params=
 comment1.target=GameBoard()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n\ \r\n
@@ -11,7 +11,7 @@ comment3.params=
 comment3.target=void\ checkMiddle()
 comment3.text=\r\n\ Use\ getColorAt\ to\ check\ for\ a\ WIN\ ?\!\r\n
 comment4.params=
-comment4.target=void\ generator()
+comment4.target=void\ boardGenerator()
 comment4.text=\r\n\ Generates\ a\ 5x5\ field\ with\ random\ colors\ and\ 1\ empty\ tile.\r\n
 comment5.params=
 comment5.target=void\ testSetup()

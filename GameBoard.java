@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 import bluej.collect.GreenfootInterfaceEvent;
@@ -9,7 +10,7 @@ import greenfoot.core.GreenfootMain;
  * Write a description of class MyWorld here.
  * 
  * @author Leon Namowitz 
- * @version 0.0.1
+ * @version 0.0.2
  */
 public class GameBoard extends World
 {
@@ -46,7 +47,8 @@ public class GameBoard extends World
         // setBackground(background);
 
         // testSetup();
-        generator();
+        boardGenerator();
+        // winGenerator();
         
     }
 
@@ -74,7 +76,7 @@ public class GameBoard extends World
     /**
      * Generates a 5x5 field with random colors and 1 empty tile.
      */
-    public void generator()
+    public void boardGenerator()
     {
         for (int i = 160; i < 460; i += 60) {
             for (int j = 160; j < 460; j += 60) {
@@ -83,9 +85,11 @@ public class GameBoard extends World
         }
         // Removes 1 object from board  
         // Currently buggy if it lands on empty offset in between !!!
-        List objects = getObjectsAt(Greenfoot.getRandomNumber(220)+170, Greenfoot.getRandomNumber(220)+170, GameTile.class);
+        // List objects = getObjectsAt(Greenfoot.getRandomNumber(220)+170, Greenfoot.getRandomNumber(220)+170, GameTile.class);
+        List objects = getObjectsAt(280, 220, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
+        //Create border around tiles
         int outside = 4;    //Outside tiles are invis (4)
         for (int i = 100; i < 520; i += 60) {
             addObject(new GameTile(outside), i, 100);
@@ -100,7 +104,6 @@ public class GameBoard extends World
             addObject(new GameTile(outside), 460, i);
         }
     }
-
 
 
     //For testing only

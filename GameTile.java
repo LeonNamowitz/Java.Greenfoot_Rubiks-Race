@@ -14,17 +14,10 @@ public class GameTile extends Actor
     int oldY;
     String direction;
 
-
+    // Deprecated..
     public GameTile()
     {
-        int tileIndex = 0;
-
         GreenfootImage tile = new GreenfootImage(tileLength, tileLength);
-        // create a random color, with every color channel between 30 and 230
-        // int red = Greenfoot.getRandomNumber(200) + 30;
-        // int green = Greenfoot.getRandomNumber(200) + 30;
-        // int blue = Greenfoot.getRandomNumber(200) + 30;
-        // int alpha = 255;
         int choice = Greenfoot.getRandomNumber(4);
         Color color = selectColor(choice);
         tile.setColor(color);
