@@ -29,7 +29,6 @@ public class GameTile extends Actor
         tile.setColor(color);
         tile.fillRect(0, 0, tileLength, tileLength);
         setImage(tile);
-
     }
 
     /**
@@ -49,156 +48,60 @@ public class GameTile extends Actor
             oldX = this.getX();
             oldY = this.getY();
             hasBeenClicked = true;
-            Actor current = this;
-            direction = checkDirection(current);
+            direction = checkDirection();
             // System.out.println(direction);
         } 
     }
-    
-    // Careful: if move amount is not a divisor of the offset, it won't stop !!!
+
     public void checkMove()
     {
-        if (this.getY() == 160)   {
-            if (hasBeenClicked == true && direction == "down") {
-                this.setRotation(90);
-                this.move(5);
-                if (this.getY() == oldY + 60)    {
-                    hasBeenClicked = false;
-                }
+        // Careful: if move amount is not a divisor of the offset, it won't stop !!!
+        if (hasBeenClicked == true && direction == "right") {
+            this.setRotation(0);
+            this.move(5);
+            if (this.getX() == oldX + 60)    {
+                hasBeenClicked = false;
             }
         }
-        if (this.getY() == 400)    {
-            if (hasBeenClicked == true && direction == "up") {
-                this.setRotation(270);
-                this.move(5);
-                if (this.getY() == oldY - 60)    {
-                    hasBeenClicked = false;
-                }
+        if (hasBeenClicked == true && direction == "down") {
+            this.setRotation(90);
+            this.move(5);
+            if (this.getY() == oldY + 60)    {
+                hasBeenClicked = false;
             }
         }
-        if (this.getX() == 160)    {
-            if (hasBeenClicked == true && direction == "right") {
-                this.setRotation(0);
-                this.move(5);
-                if (this.getX() == oldX + 60)    {
-                    hasBeenClicked = false;
-                }
+        if (hasBeenClicked == true && direction == "left") {
+            this.setRotation(180);
+            this.move(5);
+            if (this.getX() == oldX - 60)    {
+                hasBeenClicked = false;
             }
         }
-        if (this.getX() == 400)    {
-            if (hasBeenClicked == true && direction == "left") {
-                this.setRotation(180);
-                this.move(5);
-                if (this.getX() == oldX - 60)    {
-                    hasBeenClicked = false;
-                }
+        if (hasBeenClicked == true && direction == "up") {
+            this.setRotation(270);
+            this.move(5);
+            if (this.getY() == oldX - 60)    {
+                hasBeenClicked = false;
             }
         }
     }
-    
 
-    public String checkDirection(Actor current)
+    public String checkDirection()
     {
-        System.out.println(checkRow(current));
-        System.out.println(checkColumn(current));
-
-        if (checkRow(current) == 1 && checkColumn(current) == 1)    {
-            if (getOneObjectAtOffset(0, 60, GameTile.class) == null)    {
-                return "down";
-            }
-            if (getOneObjectAtOffset(60, 0, GameTile.class) == null)    {
-                return "right";
-            }
+        if (getOneObjectAtOffset(60, 0, GameTile.class) == null)    {
+            return "right";
         }
-        else if (checkRow(current) == 1 && checkColumn(current) == 5) {
-            if (getOneObjectAtOffset(0, 60, GameTile.class) == null)    {
-                return "down";
-            }
-            if (getOneObjectAtOffset(-60, 0, GameTile.class) == null)    {
-                return "left";
-            }
+        if (getOneObjectAtOffset(-60, 0, GameTile.class) == null)    {
+            return "left";
         }
-        else if (checkRow(current) == 5 && checkColumn(current) == 1) {
-            if (getOneObjectAtOffset(0, -60, GameTile.class) == null)    {
-                return "up";
-            }
-            if (getOneObjectAtOffset(60, 0, GameTile.class) == null)    {
-                return "right";
-            }
+        if (getOneObjectAtOffset(0, 60, GameTile.class) == null)    {
+            return "down";
         }
-        else if (checkRow(current) == 5 && checkColumn(current) == 5) {
-            if (getOneObjectAtOffset(0, -60, GameTile.class) == null)    {
-                return "up";
-            }
-            if (getOneObjectAtOffset(-60, 0, GameTile.class) == null)    {
-                return "left";
-            }
-        }
-        else if (checkRow(current) == 1)    {
-            if (getOneObjectAtOffset(0, 60, GameTile.class) == null)    {
-                return "down";
-            }
-        }
-        else if (checkRow(current) == 5)    {
-            if (getOneObjectAtOffset(0, -60, GameTile.class) == null)    {
-                return "up";
-            }
-        }
-        else if (checkColumn(current) == 1) {
-            if (getOneObjectAtOffset(60, 0, GameTile.class) == null)    {
-                return "right";
-            }
-        }
-        else if (checkColumn(current) == 5) {
-            if (getOneObjectAtOffset(-60, 0, GameTile.class) == null)    {
-                return "left";
-            }
-        }
-        
-        return "null";
-    }
-    
-    public int checkRow(Actor current)
-    {
-        if (current.getX() == 160) {
-            return 1;
-        }
-        if (current.getX() == 220) {
-            return 2;
-        }
-        if (current.getX() == 280) {
-            return 3;
-        }
-        if (current.getX() == 340) {
-            return 4;
-        }
-        if (current.getX() == 400) {
-            return 5;
+        if (getOneObjectAtOffset(0, -60, GameTile.class) == null)    {
+            return "up";
         }
         else    {
-            return 0;
-        }
-    }
-
-    public int checkColumn(Actor current)
-    {
-        if (current.getY() == 160) {
-            return 1;
-        }
-        if (current.getY() == 220) {
-            return 2;
-        }
-        if (current.getY() == 280) {
-            return 3;
-        }
-        if (current.getY() == 340) {
-            return 4;
-        }
-        if (current.getY() == 400) {
-            return 5;
-        }
-        else    {
-            return 0;
+            return "null";
         }
     }
 
