@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import bluej.collect.GreenfootInterfaceEvent;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.collision.ColManager;
@@ -47,8 +46,8 @@ public class GameBoard extends World
         // setBackground(background);
 
         // testSetup();
-        boardGenerator();
-        // winGenerator();
+        // boardGenerator();
+        winGenerator();
         
     }
 
@@ -57,19 +56,32 @@ public class GameBoard extends World
      */
     public void act()
     {
-        checkMiddle();
+
     }
 
     /**
      * Use getColorAt to check for a WIN ?!
      */
-    public void checkMiddle()
+    public void checkColors()
     {
-        // GreenfootImage test = new GreenfootImage("test");
-        List objects = getObjectsAt(160, 160, GameTile.class);
-        Actor here = (Actor) objects.get(0);
-        Color current = here.getImage().getColor();
+        List<Color> colors = new ArrayList<Color>();
+        colors.add(0, Color.BLACK);
+
+
+        // List objects = getObjectsAt(160, 160, GameTile.class);
+        // Actor here = (Actor) objects.get(0);
+        // Color current = here.getImage().getColor();
         // System.out.println(current);
+    }
+
+
+    public void winGenerator()
+    {
+        for (int i = getWidth()/3; i < (getWidth()/3) + 3*60; i += 60) {
+            for (int j = 220; j < 400; j += 60) {
+                addObject(new GameTile(2), i, j);
+            }
+        }
     }
 
 
