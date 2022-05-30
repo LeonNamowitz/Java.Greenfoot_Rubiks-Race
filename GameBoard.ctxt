@@ -8,14 +8,16 @@ comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ Method.\ World\ logic.\r\n
 comment3.params=
-comment3.target=void\ checkColors()
-comment3.text=\r\n\ Use\ getColorAt\ to\ check\ for\ a\ WIN\ ?\!\r\n
+comment3.target=void\ gameLogic()
 comment4.params=
-comment4.target=void\ winGenerator()
-comment4.text=\r\n\ Creates\ the\ win\ scenario.\r\n\ TO-DO\:\ Clean\ up\ ugly\ use\ of\ variables\ \!\r\n
+comment4.target=java.util.List\ checkColors()
+comment4.text=\r\n\ Creates\ ArrayList\ of\ colors\ of\ the\ 9\ tiles\ in\ the\ middle\ from\ top\ to\ bottom,\ left\ to\ right.\r\n
 comment5.params=
-comment5.target=void\ boardGenerator()
-comment5.text=\r\n\ Generates\ a\ 5x5\ field\ with\ random\ colors\ and\ 1\ empty\ tile.\r\n\ Starts\ at\ x\=160,\ y\=160\ and\ ends\ at\ x\=400,\ y\=400\ with\ an\ increment\ of\ 60.\r\n
+comment5.target=void\ winGenerator()
+comment5.text=\r\n\ Creates\ the\ win\ scenario.\r\n\ TO-DO\:\ Clean\ up\ ugly\ use\ of\ variables\ \!\r\n
 comment6.params=
-comment6.target=void\ testSetup()
-numComments=7
+comment6.target=void\ boardGenerator()
+comment6.text=\r\n\ Generates\ a\ 5x5\ field\ with\ random\ colors\ and\ 1\ empty\ tile.\r\n\ Starts\ at\ x\=160,\ y\=160\ and\ ends\ at\ x\=400,\ y\=400\ with\ an\ increment\ of\ 60.\r\n
+comment7.params=
+comment7.target=void\ testSetup()
+numComments=8

@@ -46,8 +46,7 @@ public class GameBoard extends World
 
         // testSetup();
         // boardGenerator();
-        winGenerator();
-        
+        // winGenerator();
     }
 
     /**
@@ -55,35 +54,42 @@ public class GameBoard extends World
      */
     public void act()
     {
+        gameLogic();
+    }
+
+    public void gameLogic()
+    {
         if (!done)  {
-            checkColors();
+            winGenerator();
+            winColors = checkColors();
+            Greenfoot.delay(60);
+            removeObjects(getObjects(GameTile.class));
+            Greenfoot.delay(20);
+            boardGenerator();
             System.out.println(winColors);
             done = true;
         }
     }
 
     /**
-     * Use getColorAt to check for a WIN ?!
+     * Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.
      */
-    public void checkColors()
+    public List checkColors()
     {
-        // int localX = startX;
-        // int localY = startY;
+        List<Color> currentColors = new ArrayList<Color>();
         for (int position = 0; position < 9;)  {
             for (int localX = startX + 60; localX < (startX + 181); localX += 60)    {
                 for (int localY = startY + 60; localY < (startY + 181); localY  += 60)   {
                     List objects = getObjectsAt(localX, localY, GameTile.class);
                     Actor here = (Actor) objects.get(0);
                     Color current = here.getImage().getColor();
-                    winColors.add(position, current);       
+                    currentColors.add(position, current);       
                     position++;
-
                     // System.out.println(objects);
                 }
             }
         }
-
-        // System.out.println(current);
+        return(currentColors);
     }
 
     /**
