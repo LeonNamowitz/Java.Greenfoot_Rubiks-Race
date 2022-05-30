@@ -27,9 +27,8 @@ public class GameBoard extends World
     GameTile gameTile9 = new GameTile();
     GameTile gameTile10 = new GameTile();
     GameTile gameTile11 = new GameTile();
-    GameTile gameTile12 = new GameTile();
-    GameTile gameTile13 = new GameTile();
-    GameTile gameTile14 = new GameTile();
+
+    List<Color> winColors = new ArrayList<Color>();
 
 
     /**
@@ -56,7 +55,7 @@ public class GameBoard extends World
      */
     public void act()
     {
-
+        checkColors();
     }
 
     /**
@@ -64,9 +63,9 @@ public class GameBoard extends World
      */
     public void checkColors()
     {
-        List<Color> colors = new ArrayList<Color>();
-        colors.add(0, Color.BLACK);
-
+        int position = 1;
+        int posX = 
+        for ()
 
         // List objects = getObjectsAt(160, 160, GameTile.class);
         // Actor here = (Actor) objects.get(0);
@@ -87,6 +86,7 @@ public class GameBoard extends World
 
     /**
      * Generates a 5x5 field with random colors and 1 empty tile.
+     * Starts at x=160, y=160 and ends at x=400, y=400 with an increment of 60.
      */
     public void boardGenerator()
     {
