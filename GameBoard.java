@@ -57,7 +57,7 @@ public class GameBoard extends World
     {
         if (!done)  {
             checkColors();
-            // System.out.println(winColors);
+            System.out.println(winColors);
             done = true;
         }
     }
@@ -67,22 +67,20 @@ public class GameBoard extends World
      */
     public void checkColors()
     {
-        int localX = startX;
-        int localY = startY;
-        for (int position = 0, increment = 0; position < 9; position++)  {
-            if (position == 2)  {
-                localX = startX;
-                localY = startY + 60;
+        // int localX = startX;
+        // int localY = startY;
+        for (int position = 0; position < 9;)  {
+            for (int localX = startX + 60; localX < (startX + 181); localX += 60)    {
+                for (int localY = startY + 60; localY < (startY + 181); localY  += 60)   {
+                    List objects = getObjectsAt(localX, localY, GameTile.class);
+                    Actor here = (Actor) objects.get(0);
+                    Color current = here.getImage().getColor();
+                    winColors.add(position, current);       
+                    position++;
+
+                    // System.out.println(objects);
+                }
             }
-            if (position == 5)  {
-                localX = startX;
-                localY = startY + 120;
-            }
-            List objects = getObjectsAt(localX + 60 + increment, localY + 60 + increment, GameTile.class);
-            System.out.println(objects);
-            // Actor here = (Actor) objects.get(0);
-            // Color current = here.getImage().getColor();
-            // winColors.add(position, current);            
         }
 
         // System.out.println(current);
