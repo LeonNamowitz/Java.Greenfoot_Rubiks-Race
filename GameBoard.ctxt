@@ -12,6 +12,7 @@ comment3.target=void\ checkColors()
 comment3.text=\r\n\ Use\ getColorAt\ to\ check\ for\ a\ WIN\ ?\!\r\n
 comment4.params=
 comment4.target=void\ winGenerator()
+comment4.text=\r\n\ Creates\ the\ win\ scenario.\r\n\ TO-DO\:\ Clean\ up\ ugly\ use\ of\ variables\ \!\r\n
 comment5.params=
 comment5.target=void\ boardGenerator()
 comment5.text=\r\n\ Generates\ a\ 5x5\ field\ with\ random\ colors\ and\ 1\ empty\ tile.\r\n\ Starts\ at\ x\=160,\ y\=160\ and\ ends\ at\ x\=400,\ y\=400\ with\ an\ increment\ of\ 60.\r\n

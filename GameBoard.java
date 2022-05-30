@@ -29,7 +29,7 @@ public class GameBoard extends World
     List<Color> winColors = new ArrayList<Color>();
     int startX = 160;
     int startY = 160;
-
+    boolean done = false;
 
     /**
      * Constructor for GameBoard with grey background.
@@ -55,7 +55,11 @@ public class GameBoard extends World
      */
     public void act()
     {
-        checkColors();
+        if (!done)  {
+            checkColors();
+            // System.out.println(winColors);
+            done = true;
+        }
     }
 
     /**
@@ -63,12 +67,24 @@ public class GameBoard extends World
      */
     public void checkColors()
     {
-        int position = 1;
+        int localX = startX;
+        int localY = startY;
+        for (int position = 0, increment = 0; position < 9; position++)  {
+            if (position == 2)  {
+                localX = startX;
+                localY = startY + 60;
+            }
+            if (position == 5)  {
+                localX = startX;
+                localY = startY + 120;
+            }
+            List objects = getObjectsAt(localX + 60 + increment, localY + 60 + increment, GameTile.class);
+            System.out.println(objects);
+            // Actor here = (Actor) objects.get(0);
+            // Color current = here.getImage().getColor();
+            // winColors.add(position, current);            
+        }
 
-
-        // List objects = getObjectsAt(160, 160, GameTile.class);
-        // Actor here = (Actor) objects.get(0);
-        // Color current = here.getImage().getColor();
         // System.out.println(current);
     }
 
