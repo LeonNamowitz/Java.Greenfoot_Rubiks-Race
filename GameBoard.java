@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import bluej.collect.GreenfootInterfaceEvent;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import greenfoot.collision.ColManager;
-import greenfoot.core.GreenfootMain;
 
 /**
  * Write a description of class MyWorld here.
@@ -13,8 +10,8 @@ import greenfoot.core.GreenfootMain;
  */
 public class GameBoard extends World
 {
-    int steps = 0;
-    Actor currentTile;
+    // int steps = 0;
+    // Actor currentTile;
     // For testing only
     GameTile gameTile1 = new GameTile();
     GameTile gameTile2 = new GameTile();
@@ -27,12 +24,15 @@ public class GameBoard extends World
     GameTile gameTile9 = new GameTile();
     GameTile gameTile10 = new GameTile();
     GameTile gameTile11 = new GameTile();
+    // For testing only
 
     List<Color> winColors = new ArrayList<Color>();
+    int startX = 160;
+    int startY = 160;
 
 
     /**
-     * Constructor for objects of class MyWorld.
+     * Constructor for GameBoard with grey background.
      * 
      */
     public GameBoard()
@@ -64,8 +64,7 @@ public class GameBoard extends World
     public void checkColors()
     {
         int position = 1;
-        int posX = 
-        for ()
+
 
         // List objects = getObjectsAt(160, 160, GameTile.class);
         // Actor here = (Actor) objects.get(0);
@@ -73,16 +72,18 @@ public class GameBoard extends World
         // System.out.println(current);
     }
 
-
+    /**
+     * Creates the win scenario.
+     * TO-DO: Clean up ugly use of variables !
+     */
     public void winGenerator()
     {
-        for (int i = getWidth()/3; i < (getWidth()/3) + 3*60; i += 60) {
-            for (int j = 220; j < 400; j += 60) {
+        for (int i = startX + 60; i < (startX + 181); i += 60) {
+            for (int j = startY + 60; j < (startY + 181); j += 60) {
                 addObject(new GameTile(2), i, j);
             }
         }
     }
-
 
     /**
      * Generates a 5x5 field with random colors and 1 empty tile.
@@ -90,8 +91,8 @@ public class GameBoard extends World
      */
     public void boardGenerator()
     {
-        for (int i = 160; i < 460; i += 60) {
-            for (int j = 160; j < 460; j += 60) {
+        for (int i = startX; i < 460; i += 60) {
+            for (int j = startY; j < 460; j += 60) {
                 addObject(new GameTile(), i, j);
             }
         }
@@ -101,7 +102,8 @@ public class GameBoard extends World
         List objects = getObjectsAt(280, 220, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
-        //Create border around tiles
+        // Creates border around tiles
+        // TO-DO: Change positions to variables !!!
         int outside = 4;    //Outside tiles are invis (4)
         for (int i = 100; i < 520; i += 60) {
             addObject(new GameTile(outside), i, 100);

@@ -2,10 +2,10 @@
 dependency1.from=GameBoard
 dependency1.to=GameTile
 dependency1.type=UsesDependency
-editor.fx.0.height=830
-editor.fx.0.width=780
-editor.fx.0.x=100
-editor.fx.0.y=100
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
 height=763
 package.numDependencies=1
 package.numTargets=2

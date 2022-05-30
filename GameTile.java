@@ -148,5 +148,4 @@ public class GameTile extends Actor
             return Color.BLACK;
         }
     }
-
 }
