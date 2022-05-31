@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class MyWorld here.
  * 
  * @author Leon Namowitz 
- * @version 0.0.5
+ * @version 0.0.6
  */
 public class GameBoard extends World
 {
