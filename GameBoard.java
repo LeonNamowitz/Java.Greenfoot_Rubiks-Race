@@ -26,7 +26,7 @@ public class GameBoard extends World
 
     List<Color> winColors = new ArrayList<Color>();
     List<Color> currentColors = new ArrayList<Color>();
-    int startX = 160;
+    int startX = 160;   // @TODO make dependent on board size !
     int startY = 160;
     boolean done = false;
     boolean stopGame = false;

@@ -11,6 +11,7 @@ Download and install [Greenfoot](https://www.greenfoot.org/download).
 
 Move tiles around until the middle part of the board matches the given solution.
 
+
 ## TO-DO:
 
 * improve win-state
@@ -25,9 +26,15 @@ Move tiles around until the middle part of the board matches the given solution.
   * AI ??
   * Count moves for highscore 
 
+
+
 ## Bugs:
 
 * randomly removing a tile throws NullPointerException if it lands on empyty offset (GameBoard ln.165)
+*
+* Problem?: Tile movement speed depends on speed slider
+  * Greenfoot.delay() depends on the slider as well
+
 
 
 ## License
