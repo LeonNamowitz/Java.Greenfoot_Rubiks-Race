@@ -43,11 +43,8 @@ public class GameBoard extends World
         GreenfootImage background = getBackground();
         background.setColor(new Color(100, 100, 100, 128));
         background.fillRect(0, 0, getWidth(), getHeight());
-
-        // testSetup();
-        // boardGenerator();
-        // winGenerator();
     }
+
 
     /**
      * Act Method. World logic.
@@ -79,6 +76,7 @@ public class GameBoard extends World
     }
 
     public void checkWin()  {
+        currentColors = checkColors();
         if (winColors == currentColors) {
             System.out.println("You won!");
         }
@@ -132,7 +130,7 @@ public class GameBoard extends World
     {
         for (int i = startX; i < 460; i += 60) {
             for (int j = startY; j < 460; j += 60) {
-                addObject(new GameTile(), i, j);
+                addObject(new GameTile(2), i, j);
             }
         }
         // Removes 1 object from board  

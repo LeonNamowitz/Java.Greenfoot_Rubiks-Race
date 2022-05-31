@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameTile here.
+ * Colored Game Tiles that move to a free spot on click.
+ * Colors: 0=red, 1=green, 2=blue, 3=yellow, 4=transparent
  * 
  * @author Leon Namowitz 
  * @version 0.0.2
@@ -14,7 +15,7 @@ public class GameTile extends Actor
     int oldY;
     String direction;
 
-    // Deprecated..
+    // Deprecated..just for testing
     public GameTile()
     {
         GreenfootImage tile = new GreenfootImage(tileLength, tileLength);
