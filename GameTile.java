@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class GameTile here.
  * 
  * @author Leon Namowitz 
- * @version (a version number or a date)
+ * @version 0.0.2
  */
 public class GameTile extends Actor
 {

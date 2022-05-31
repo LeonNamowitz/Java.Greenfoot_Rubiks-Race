@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class MyWorld here.
  * 
  * @author Leon Namowitz 
- * @version 0.0.2
+ * @version 0.0.4
  */
 public class GameBoard extends World
 {
@@ -27,6 +27,7 @@ public class GameBoard extends World
     // For testing only
 
     List<Color> winColors = new ArrayList<Color>();
+    List<Color> currentColors = new ArrayList<Color>();
     int startX = 160;
     int startY = 160;
     boolean done = false;
@@ -57,6 +58,9 @@ public class GameBoard extends World
         gameLogic();
     }
 
+    /**
+     * TO-DO: check colors every time an OUTSIDE tile is moved (to avoid null pointer exception)
+     */
     public void gameLogic()
     {
         if (!done)  {
@@ -66,6 +70,7 @@ public class GameBoard extends World
             removeObjects(getObjects(GameTile.class));
             Greenfoot.delay(20);
             boardGenerator();
+            
             System.out.println(winColors);
             done = true;
         }
