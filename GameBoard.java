@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class MyWorld here.
  * 
  * @author Leon Namowitz 
- * @version 0.0.4
+ * @version 0.0.5
  */
 public class GameBoard extends World
 {
@@ -43,7 +43,6 @@ public class GameBoard extends World
         GreenfootImage background = getBackground();
         background.setColor(new Color(100, 100, 100, 128));
         background.fillRect(0, 0, getWidth(), getHeight());
-        // setBackground(background);
 
         // testSetup();
         // boardGenerator();
@@ -55,14 +54,15 @@ public class GameBoard extends World
      */
     public void act()
     {
-        gameLogic();
+        setupBoard();
+        checkWin();
     }
 
     /**
-     * TO-DO: check colors ONLY every time an OUTSIDE tile is moved (to avoid null pointer exception)
-     * NVM do exception in add to list only if !null
+     * Setup at the beginning of the game.
+     * 
      */
-    public void gameLogic()
+    public void setupBoard()
     {
         if (!done)  {
             winGenerator();
@@ -78,9 +78,15 @@ public class GameBoard extends World
         }
     }
 
+    public void checkWin()  {
+        if (winColors == currentColors) {
+            System.out.println("You won!");
+        }
+    }
+
     /**
      * Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.
-     * TO-DO: Exception in add to list only if !null
+     * Exception for the empty tile.
      */
     public List<Color> checkColors()
     {
