@@ -24,7 +24,7 @@ comment7.target=java.util.List\ getColors()
 comment7.text=\r\n\ Creates\ ArrayList\ of\ colors\ of\ the\ 9\ tiles\ in\ the\ middle\ from\ top\ to\ bottom,\ left\ to\ right.\r\n\ Exception\ for\ the\ empty\ tile.\r\n
 comment8.params=
 comment8.target=void\ winGenerator()
-comment8.text=\r\n\ Creates\ the\ win\ scenario.\r\n\ TO-DO\:\ Clean\ up\ ugly\ use\ of\ variables\ \!\r\n
+comment8.text=\r\n\ Creates\ the\ win\ scenario.\r\n\ @TODO\ Clean\ up\ ugly\ use\ of\ variables\ \!\r\n
 comment9.params=
 comment9.target=void\ boardGenerator()
 comment9.text=\r\n\ Generates\ a\ 5x5\ field\ with\ random\ colors\ and\ 1\ empty\ tile.\r\n\ Starts\ at\ x\=160,\ y\=160\ and\ ends\ at\ x\=400,\ y\=400\ with\ an\ increment\ of\ 60.\r\n

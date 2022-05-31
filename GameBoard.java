@@ -39,8 +39,8 @@ public class GameBoard extends World
      */
     public GameBoard()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 600, 1); 
+        // Create a new world with 600x600 cells with a cell size of 1x1 pixels.
+        super(800, 400, 1); 
         GreenfootImage background = getBackground();
         background.setColor(new Color(100, 100, 100, 128));
         background.fillRect(0, 0, getWidth(), getHeight());
@@ -71,8 +71,8 @@ public class GameBoard extends World
             Greenfoot.delay(20);
             boardGenerator();
             currentColors = getColors();
-            System.out.println(winColors);
-            System.out.println(currentColors);
+            // System.out.println(winColors);
+            // System.out.println(currentColors);
             done = true;
         }
     }
@@ -84,8 +84,7 @@ public class GameBoard extends World
                 stopGame = true;
             }
             hasTileMoved = false;
-            System.out.println("check");
-            // System.out.println(currentColors);
+            // System.out.println("check");
         }
     }
     
@@ -139,7 +138,7 @@ public class GameBoard extends World
 
     /**
      * Creates the win scenario.
-     * TO-DO: Clean up ugly use of variables !
+     * @TODO Clean up ugly use of variables !
      */
     public void winGenerator()
     {
@@ -169,7 +168,7 @@ public class GameBoard extends World
         removeObject(start);
 
         // Creates border around tiles
-        // TO-DO: Change positions to variables !!!
+        // @TODO Change positions to variables !!!
         int outside = 4;    //Outside tiles are invis (4)
         for (int i = 100; i < 520; i += 60) {
             addObject(new GameTile(outside), i, 100);
