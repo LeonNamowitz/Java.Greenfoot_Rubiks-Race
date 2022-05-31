@@ -61,15 +61,19 @@ public class GameTile extends Actor
 
     /**
      * Moves towards the empty direction and stops at a full tile offset.
+     * 12 act() cycles to complete move
      */
     public void checkMove()
     {
+        GameBoard gameBoard = (GameBoard)getWorld();
+
         // Careful: if move amount is not a divisor of the offset, it won't stop !!!
         if (hasBeenClicked == true && direction == "right") {
             this.setRotation(0);
             this.move(5);
             if (this.getX() == oldX + 60)    {
                 hasBeenClicked = false;
+                gameBoard.tileHasMoved(true);
             }
         }
         if (hasBeenClicked == true && direction == "down") {
@@ -77,6 +81,7 @@ public class GameTile extends Actor
             this.move(5);
             if (this.getY() == oldY + 60)    {
                 hasBeenClicked = false;
+                gameBoard.tileHasMoved(true);
             }
         }
         if (hasBeenClicked == true && direction == "left") {
@@ -84,6 +89,7 @@ public class GameTile extends Actor
             this.move(5);
             if (this.getX() == oldX - 60)    {
                 hasBeenClicked = false;
+                gameBoard.tileHasMoved(true);
             }
         }
         if (hasBeenClicked == true && direction == "up") {
@@ -91,6 +97,7 @@ public class GameTile extends Actor
             this.move(5);
             if (this.getY() == oldY - 60)    {
                 hasBeenClicked = false;
+                gameBoard.tileHasMoved(true);
             }
         }
     }

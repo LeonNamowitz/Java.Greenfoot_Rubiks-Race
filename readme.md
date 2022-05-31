@@ -21,6 +21,13 @@ Move tiles around until the middle part of the board matches the given solution.
 * Make deterministic
 * QoL: shift entire row if clicked
 
+* Far out ideas
+  * AI ??
+  * Count moves for highscore 
+
+## Bugs:
+
+* 
 
 
 ## License

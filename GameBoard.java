@@ -31,6 +31,9 @@ public class GameBoard extends World
     int startX = 160;
     int startY = 160;
     boolean done = false;
+    boolean stopGame = false;
+    int extend = 0;
+    boolean hasTileMoved = false;
 
     /**
      * Constructor for GameBoard with grey background.
@@ -53,6 +56,7 @@ public class GameBoard extends World
     {
         setupBoard();
         checkWin();
+        stopGame();
     }
 
     /**
@@ -63,12 +67,12 @@ public class GameBoard extends World
     {
         if (!done)  {
             winGenerator();
-            winColors = checkColors();
+            winColors = getColors();
             Greenfoot.delay(60);
             removeObjects(getObjects(GameTile.class));
             Greenfoot.delay(20);
             boardGenerator();
-            currentColors = checkColors();
+            currentColors = getColors();
             System.out.println(winColors);
             System.out.println(currentColors);
             done = true;
@@ -76,9 +80,35 @@ public class GameBoard extends World
     }
 
     public void checkWin()  {
-        currentColors = checkColors();
-        if (winColors == currentColors) {
+        if (hasTileMoved) {
+            currentColors = getColors();
+            if (winColors.equals(currentColors)) {
+                stopGame = true;
+            }
+            hasTileMoved = false;
+            System.out.println("check");
+            // System.out.println(currentColors);
+        }
+    }
+    
+    /**
+     * Ends the game after 12 additional act() cycles so the tile can finish moving.
+     */
+    public void stopGame()
+    {
+        if (stopGame)  {
+            extend++;
+        }
+        if (extend == 12)  {
             System.out.println("You won!");
+            Greenfoot.stop();
+        }
+    }
+
+    public void tileHasMoved(boolean state)
+    {
+        if (state)  {
+            hasTileMoved = true;
         }
     }
 
@@ -86,7 +116,7 @@ public class GameBoard extends World
      * Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.
      * Exception for the empty tile.
      */
-    public List<Color> checkColors()
+    public List<Color> getColors()
     {
         List<Color> currentColors = new ArrayList<Color>();
         for (int position = 0; position < 9;)  {
