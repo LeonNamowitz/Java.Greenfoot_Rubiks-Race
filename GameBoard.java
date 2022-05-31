@@ -59,7 +59,8 @@ public class GameBoard extends World
     }
 
     /**
-     * TO-DO: check colors every time an OUTSIDE tile is moved (to avoid null pointer exception)
+     * TO-DO: check colors ONLY every time an OUTSIDE tile is moved (to avoid null pointer exception)
+     * NVM do exception in add to list only if !null
      */
     public void gameLogic()
     {
@@ -70,27 +71,34 @@ public class GameBoard extends World
             removeObjects(getObjects(GameTile.class));
             Greenfoot.delay(20);
             boardGenerator();
-            
+            currentColors = checkColors();
             System.out.println(winColors);
+            System.out.println(currentColors);
             done = true;
         }
     }
 
     /**
      * Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.
+     * TO-DO: Exception in add to list only if !null
      */
-    public List checkColors()
+    public List<Color> checkColors()
     {
         List<Color> currentColors = new ArrayList<Color>();
         for (int position = 0; position < 9;)  {
             for (int localX = startX + 60; localX < (startX + 181); localX += 60)    {
                 for (int localY = startY + 60; localY < (startY + 181); localY  += 60)   {
-                    List objects = getObjectsAt(localX, localY, GameTile.class);
-                    Actor here = (Actor) objects.get(0);
-                    Color current = here.getImage().getColor();
-                    currentColors.add(position, current);       
+                    List<GameTile> objects = getObjectsAt(localX, localY, GameTile.class);
+                    if (objects.isEmpty() == false)  {
+                        Actor here = (Actor) objects.get(0);
+                        Color current = here.getImage().getColor();
+                        currentColors.add(position, current);       
+                    }
+                    else    {
+                        currentColors.add(position, Color.BLACK);       
+                    }
                     position++;
-                    // System.out.println(objects);
+                    // System.out.println(position);
                 }
             }
         }
@@ -124,7 +132,7 @@ public class GameBoard extends World
         // Removes 1 object from board  
         // Currently buggy if it lands on empty offset in between !!!
         // List objects = getObjectsAt(Greenfoot.getRandomNumber(220)+170, Greenfoot.getRandomNumber(220)+170, GameTile.class);
-        List objects = getObjectsAt(280, 220, GameTile.class);
+        List<GameTile> objects = getObjectsAt(280, 220, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
         // Creates border around tiles
