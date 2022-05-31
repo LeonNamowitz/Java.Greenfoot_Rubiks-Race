@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -57,7 +57,7 @@ extends greenfoot.World</pre>
 <div class="block">Write a description of class MyWorld here.</div>
 <dl>
 <dt><span class="simpleTagLabel">Version:</span></dt>
-<dd>0.0.2</dd>
+<dd>0.0.6</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Leon Namowitz</dd>
 </dl>
@@ -119,23 +119,42 @@ extends greenfoot.World</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.List</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkColors()">checkColors</a></span>()</code></th>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkWin()">checkWin</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;greenfoot.Color&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColors()">getColors</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#gameLogic()">gameLogic</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setupBoard()">setupBoard</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Setup at the beginning of the game.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopGame()">stopGame</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Ends the game after 12 additional act() cycles so the tile can finish moving.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#testSetup()">testSetup</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tileHasMoved(boolean)">tileHasMoved</a></span>&#8203;(boolean&nbsp;state)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#winGenerator()">winGenerator</a></span>()</code></th>
 <td class="colLast">
@@ -207,23 +226,53 @@ extends greenfoot.World</pre>
 </dl>
 </li>
 </ul>
-<a id="gameLogic()">
+<a id="setupBoard()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>gameLogic</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;gameLogic()</pre>
+<h4>setupBoard</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setupBoard()</pre>
+<div class="block">Setup at the beginning of the game.</div>
 </li>
 </ul>
-<a id="checkColors()">
+<a id="checkWin()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>checkColors</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&nbsp;checkColors()</pre>
-<div class="block">Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.</div>
+<h4>checkWin</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;checkWin()</pre>
+</li>
+</ul>
+<a id="stopGame()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stopGame</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;stopGame()</pre>
+<div class="block">Ends the game after 12 additional act() cycles so the tile can finish moving.</div>
+</li>
+</ul>
+<a id="tileHasMoved(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>tileHasMoved</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;tileHasMoved&#8203;(boolean&nbsp;state)</pre>
+</li>
+</ul>
+<a id="getColors()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getColors</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;greenfoot.Color&gt;&nbsp;getColors()</pre>
+<div class="block">Creates ArrayList of colors of the 9 tiles in the middle from top to bottom, left to right.
+ Exception for the empty tile.</div>
 </li>
 </ul>
 <a id="winGenerator()">

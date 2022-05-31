@@ -15,7 +15,9 @@ public class GameTile extends Actor
     int oldY;
     String direction;
 
-    // Deprecated..just for testing
+    /**
+     * Constructor for random generation.
+     */
     public GameTile()
     {
         GreenfootImage tile = new GreenfootImage(tileLength, tileLength);
@@ -26,6 +28,10 @@ public class GameTile extends Actor
         setImage(tile);
     }
 
+    /**
+     * Constructror for testing with fixed colors.
+     * @param Colors: 0=red, 1=green, 2=blue, 3=yellow, 4=transparent
+     */
     public GameTile(int choice)
     {
         GreenfootImage tile = new GreenfootImage(tileLength, tileLength);
@@ -35,6 +41,7 @@ public class GameTile extends Actor
         setImage(tile);
     }
 
+    
     /**
      * Waits for a mouse inputs;the clicked object then moves to an empty adjacent tile.
      */

@@ -13,7 +13,7 @@ Move tiles around until the middle part of the board matches the given solution.
 
 ## TO-DO:
 
-* implement win-state
+* improve win-state
   * permanently show win-state
   * move to the side
   * animate ?
@@ -27,7 +27,7 @@ Move tiles around until the middle part of the board matches the given solution.
 
 ## Bugs:
 
-* 
+* randomly removing a tile throws NullPointerException if it lands on empyty offset (GameBoard ln.165)
 
 
 ## License

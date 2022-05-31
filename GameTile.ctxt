@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=GameTile
-comment0.text=\r\n\ Colored\ Game\ Tiles\ that\ move\ to\ a\ free\ spot\ on\ click.\r\n\ Colors\:\ 0\=red,\ 1\=green,\ 2\=blue,\ 3\=yellow,\ 4\=transparent\r\n\ \r\n\ @author\ Leon\ Namowitz\ \r\n\ @version\ 0.0.2\r\n
+comment0.text=\r\n\ Colored\ Game\ Tiles\ that\ move\ to\ a\ free\ spot\ on\ click.\r\n\ Colors\:\ 0\=red,\ 1\=green,\ 2\=blue,\ 3\=yellow,\ 4\=transparent\r\n\ \r\n\ @author\ Leon\ Namowitz\ \r\n\ @version\ 0.0.6\r\n
 comment1.params=
 comment1.target=GameTile()
+comment1.text=\r\n\ Constructor\ for\ random\ generation.\r\n
 comment2.params=choice
 comment2.target=GameTile(int)
+comment2.text=\r\n\ Constructror\ for\ testing\ with\ fixed\ colors.\r\n\ @param\ Colors\:\ 0\=red,\ 1\=green,\ 2\=blue,\ 3\=yellow,\ 4\=transparent\r\n
 comment3.params=
 comment3.target=void\ act()
 comment3.text=\r\n\ Waits\ for\ a\ mouse\ inputs;the\ clicked\ object\ then\ moves\ to\ an\ empty\ adjacent\ tile.\r\n

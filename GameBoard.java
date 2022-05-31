@@ -10,8 +10,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameBoard extends World
 {
-    // int steps = 0;
-    // Actor currentTile;
     // For testing only
     GameTile gameTile1 = new GameTile();
     GameTile gameTile2 = new GameTile();
@@ -147,7 +145,7 @@ public class GameBoard extends World
     {
         for (int i = startX + 60; i < (startX + 181); i += 60) {
             for (int j = startY + 60; j < (startY + 181); j += 60) {
-                addObject(new GameTile(2), i, j);
+                addObject(new GameTile(), i, j);
             }
         }
     }
@@ -160,7 +158,7 @@ public class GameBoard extends World
     {
         for (int i = startX; i < 460; i += 60) {
             for (int j = startY; j < 460; j += 60) {
-                addObject(new GameTile(2), i, j);
+                addObject(new GameTile(), i, j);
             }
         }
         // Removes 1 object from board  
@@ -169,6 +167,7 @@ public class GameBoard extends World
         List<GameTile> objects = getObjectsAt(280, 220, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
+
         // Creates border around tiles
         // TO-DO: Change positions to variables !!!
         int outside = 4;    //Outside tiles are invis (4)
