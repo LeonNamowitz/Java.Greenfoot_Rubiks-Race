@@ -28,9 +28,12 @@ public class GameBoard extends World
     List<Color> currentColors = new ArrayList<Color>();
     int startX = getWidth()/5;   // Change this to adjust board position.  
     int startY = getHeight()/5;
-    boolean done = false;
+    boolean winSetupDone = false;
+    boolean boardSetupDone = false;
+    boolean startDelay = false;
     boolean stopGame = false;
-    int extend = 0;
+    private int extend = 0;
+    private int delay = 0;
     boolean hasTileMoved = false;
 
     /**
@@ -52,6 +55,7 @@ public class GameBoard extends World
      */
     public void act()
     {
+        setupWin();
         setupBoard();
         checkWin();
         stopGame();
@@ -61,21 +65,34 @@ public class GameBoard extends World
      * Setup at the beginning of the game.
      * 
      */
-    public void setupBoard()
+    private void setupWin()
     {
-        if (!done)  {
+        if (!winSetupDone)  {
             winGenerator();
             winColors = getColors();
-            Greenfoot.delay(60);
-            // removeObjects(getObjects(GameTile.class));
-            GameTile.triggerMoveAllTiles();
+            Greenfoot.delay(60);      
+            GameTile.moveAllTiles(true);
             Greenfoot.delay(20);
+    
+            //@TODO: Somehow wait 40 act() cycles here before generating board.
+            winSetupDone = true;
+        }
+    }
+
+    private void setupBoard()
+    {
+        if (!boardSetupDone && winSetupDone && delay <= 44)   {
+            delay++;
+        }
+        if (!boardSetupDone && winSetupDone && delay == 45)  {
+            GameTile.moveAllTiles(false);
             boardGenerator();
             currentColors = getColors();
             // System.out.println(winColors);
             // System.out.println(currentColors);
-            done = true;
+            boardSetupDone = true;
         }
+        // System.out.println(delay);
     }
 
     public void checkWin()  {

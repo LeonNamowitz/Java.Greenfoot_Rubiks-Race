@@ -67,9 +67,9 @@ public class GameTile extends Actor
 
     }
 
-    public static void triggerMoveAllTiles()
+    public static void moveAllTiles(boolean value)
     {
-        shouldMove = true;
+        shouldMove = value;
     }
 
     /**

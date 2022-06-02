@@ -18,7 +18,7 @@ Move tiles around until the middle part of the board matches the given solution.
 * improve win-state
   * permanently show win-state
   * move to the side
-  * animate ?
+  * stop win tiles from bein moveable
   * 
 * Make deterministic
 * QoL: shift entire row if clicked
