@@ -26,8 +26,8 @@ public class GameBoard extends World
 
     List<Color> winColors = new ArrayList<Color>();
     List<Color> currentColors = new ArrayList<Color>();
-    int startX = 160;   // @TODO make dependent on board size !
-    int startY = 160;
+    int startX = getWidth()/4;   // Change this to adjust board position.  
+    int startY = getHeight()/4;
     boolean done = false;
     boolean stopGame = false;
     int extend = 0;
@@ -151,19 +151,19 @@ public class GameBoard extends World
 
     /**
      * Generates a 5x5 field with random colors and 1 empty tile.
-     * Starts at x=160, y=160 and ends at x=400, y=400 with an increment of 60.
+     * Starts at x=160, y=160 and ends at x=400, y=400 with an increment of 60. //@TODO refactor to be dependent on variables
      */
     public void boardGenerator()
     {
-        for (int i = startX; i < 460; i += 60) {
-            for (int j = startY; j < 460; j += 60) {
+        for (int i = startX; i < (startX + 5*60); i += 60) {
+            for (int j = startY; j < (startY + 5*60); j += 60) {
                 addObject(new GameTile(), i, j);
             }
         }
         // Removes 1 object from board  
         // Currently buggy if it lands on empty offset in between !!!
         // List objects = getObjectsAt(Greenfoot.getRandomNumber(220)+170, Greenfoot.getRandomNumber(220)+170, GameTile.class);
-        List<GameTile> objects = getObjectsAt(280, 220, GameTile.class);
+        List<GameTile> objects = getObjectsAt(getWidth()/2, getHeight()/2, GameTile.class);
         Actor start = (Actor) objects.get(0);
         removeObject(start);
 

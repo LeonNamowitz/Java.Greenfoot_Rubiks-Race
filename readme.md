@@ -11,6 +11,7 @@ Download and install [Greenfoot](https://www.greenfoot.org/download).
 
 Move tiles around until the middle part of the board matches the given solution.
 
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 ## TO-DO:
 
@@ -36,6 +37,17 @@ Move tiles around until the middle part of the board matches the given solution.
   * Greenfoot.delay() depends on the slider as well
 
 
+
+## Snutt's way of doing things..
+
+* creates 2D Array for the board indices
+  * keeps track of empty tile index and current tile index
+  * Checks if adjacent(tileIndex, emptyIndex) ==> see pushbullet image
+  *   
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
