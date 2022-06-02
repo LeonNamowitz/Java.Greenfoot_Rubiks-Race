@@ -54,11 +54,14 @@ public class GameTile extends Actor
         checkMove();
     }
 
+    /**
+     * Animates tiles to the right in 40 act() cycles.
+     */
     private void moveAllTiles()
     {
-        if (shouldMove && steps < 80) {
+        if (shouldMove && steps < 40) {
             setRotation(0);
-            move(4);
+            move(8);
             steps++;
         }
 

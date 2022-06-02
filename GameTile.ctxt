@@ -12,6 +12,7 @@ comment3.target=void\ act()
 comment3.text=\r\n\ Waits\ for\ a\ mouse\ inputs;the\ clicked\ object\ then\ moves\ to\ an\ empty\ adjacent\ tile.\r\n
 comment4.params=
 comment4.target=void\ moveAllTiles()
+comment4.text=\r\n\ Animates\ tiles\ to\ the\ right\ \r\n
 comment5.params=
 comment5.target=void\ triggerMoveAllTiles()
 comment6.params=
