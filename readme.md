@@ -29,13 +29,13 @@ Move tiles around until the middle part of the board matches the given solution.
 
 
 
-## Bugs:
+## Bugs / Code fixes:
 
 * randomly removing a tile throws NullPointerException if it lands on empyty offset (GameBoard ln.165)
 *
 * Problem?: Tile movement speed depends on speed slider
   * Greenfoot.delay() depends on the slider as well
-
+* Check access for all methods
 
 
 ## Snutt's way of doing things..

@@ -10,10 +10,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameTile extends Actor
 {
     public static int tileLength = 50;
-    boolean hasBeenClicked = false;
-    int oldX;
-    int oldY;
-    String direction;
+    private boolean hasBeenClicked = false;
+    static boolean shouldMove = false;
+    private int oldX;
+    private int oldY;
+    private int steps = 0;
+    private String direction;
 
     /**
      * Constructor for random generation.
@@ -47,8 +49,24 @@ public class GameTile extends Actor
      */
     public void act()
     {
+        moveAllTiles();
         waitForClick();
         checkMove();
+    }
+
+    private void moveAllTiles()
+    {
+        if (shouldMove && steps < 80) {
+            setRotation(0);
+            move(4);
+            steps++;
+        }
+
+    }
+
+    public static void triggerMoveAllTiles()
+    {
+        shouldMove = true;
     }
 
     /**
@@ -70,7 +88,7 @@ public class GameTile extends Actor
      * Moves towards the empty direction and stops at a full tile offset.
      * 12 act() cycles to complete move
      */
-    public void checkMove()
+    private void checkMove()
     {
         GameBoard gameBoard = (GameBoard)getWorld();
 

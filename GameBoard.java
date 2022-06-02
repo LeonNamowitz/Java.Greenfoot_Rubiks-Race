@@ -26,8 +26,8 @@ public class GameBoard extends World
 
     List<Color> winColors = new ArrayList<Color>();
     List<Color> currentColors = new ArrayList<Color>();
-    int startX = getWidth()/4;   // Change this to adjust board position.  
-    int startY = getHeight()/4;
+    int startX = getWidth()/5;   // Change this to adjust board position.  
+    int startY = getHeight()/5;
     boolean done = false;
     boolean stopGame = false;
     int extend = 0;
@@ -67,7 +67,8 @@ public class GameBoard extends World
             winGenerator();
             winColors = getColors();
             Greenfoot.delay(60);
-            removeObjects(getObjects(GameTile.class));
+            // removeObjects(getObjects(GameTile.class));
+            GameTile.triggerMoveAllTiles();
             Greenfoot.delay(20);
             boardGenerator();
             currentColors = getColors();
@@ -136,6 +137,11 @@ public class GameBoard extends World
         return(currentColors);
     }
 
+    public void moveSolution()  
+    {
+
+    }
+
     /**
      * Creates the win scenario.
      * @TODO Clean up ugly use of variables !
@@ -168,19 +174,19 @@ public class GameBoard extends World
         removeObject(start);
 
         // Creates border around tiles
-        // @TODO Change positions to variables !!!
+        // @TODO Change "60" to variable !
         int outside = 4;    //Outside tiles are invis (4)
-        for (int i = 100; i < 520; i += 60) {
-            addObject(new GameTile(outside), i, 100);
+        for (int i = startX - 60; i < (startX + 6*60); i += 60) {
+            addObject(new GameTile(outside), i, startY - 60);
         }
-        for (int i = 100; i < 520; i += 60) {
-            addObject(new GameTile(outside), i, 460);
+        for (int i = startX - 60; i < (startX + 6*60); i += 60) {
+            addObject(new GameTile(outside), i, (startY + 6*60));
         }
-        for (int i = 160; i < 460; i += 60) {
-            addObject(new GameTile(outside), 100, i);
+        for (int i = startY; i < (startX + 3*60); i += 60) {
+            addObject(new GameTile(outside), startX - 60, i);
         }
-        for (int i = 160; i < 460; i += 60) {
-            addObject(new GameTile(outside), 460, i);
+        for (int i = startY; i < (startX + 3*60); i += 60) {
+            addObject(new GameTile(outside), (startX + 5*60), i);
         }
     }
 
