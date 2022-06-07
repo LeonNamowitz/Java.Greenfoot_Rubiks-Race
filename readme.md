@@ -16,12 +16,11 @@ Move tiles around until the middle part of the board matches the given solution.
 ## TO-DO:
 
 * improve win-state
-  * permanently show win-state
-  * move to the side
   * stop win tiles from bein moveable
   * 
 * Make deterministic
 * QoL: shift entire row if clicked
+* Refactor everything to use indices instead of coordinates
 
 * Far out ideas
   * AI ??
