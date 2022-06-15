@@ -17,7 +17,8 @@ Move tiles around until the middle part of the board matches the given solution.
 
 * improve win-state
   * stop win tiles from bein moveable
-  * 
+  * stop invis tiles from being clickable 
+  *
 * Make deterministic
 * QoL: shift entire row if clicked
 * Refactor everything to use indices instead of coordinates

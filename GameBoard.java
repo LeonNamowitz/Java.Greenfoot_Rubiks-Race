@@ -170,6 +170,21 @@ public class GameBoard extends World
                 addObject(new GameTile(), i, j);
             }
         }
+        // Creates border around tiles
+        // @TODO Change "60" to variable !
+        int outside = 4;    //Outside tiles are invis (4)
+        for (int i = startX + 60; i < (startX + 4*60); i += 60) {
+            addObject(new GameTile(outside), i, startY);
+        }
+        for (int i = startX + 60; i < (startX + 4*60); i += 60) {
+            addObject(new GameTile(outside), i, (startY + 4*60));
+        }
+        for (int i = startY; i < (startX + 3*60); i += 60) {
+            addObject(new GameTile(outside), startX, i);
+        }
+        for (int i = startY; i < (startX + 3*60); i += 60) {
+            addObject(new GameTile(outside), (startX + 4*60), i);
+        }
     }
 
     /**
