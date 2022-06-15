@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Colors: 0=red, 1=green, 2=blue, 3=yellow, 4=transparent
  * 
  * @author Leon Namowitz 
- * @version 0.0.6
+ * @version 0.0.7
  */
 public class GameTile extends Actor
 {
